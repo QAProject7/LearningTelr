@@ -16,7 +16,7 @@ public class IakovLoginTest {
     public WebDriver driver;
     public IakovLoginPage iakovLoginPage;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setup() {
         iakovLoginPage = PageFactory.initElements(driver, IakovLoginPage.class);
         driver = new FirefoxDriver();
