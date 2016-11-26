@@ -27,6 +27,36 @@ public class AnatolyLoginPage extends Page {
     @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
     WebElement regButton;
 
+    @FindBy(id = "MainContent_LoginUser_PasswordRequired")
+    WebElement passwordRequiredMsg;
+
+    @FindBy(id = "MainContent_LoginUser_UserNameRequired")
+    WebElement UserNameRequiredMsg;
+
+    @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
+    WebElement RegisterLink;
+
+    //@FindBy(class="forgot" and tagName = "a")
+    //WebElement RegisterHyperLink;
+
+    @FindBy(id = "MainContent_LoginUser_CBAgreeToTerms")
+    WebElement AgreeToTermsCheckBox;
+
+    @FindBy(id = "MainContent_LoginUser_CustomValidator1")
+    WebElement CustomValidator1Msg;
+
+    @FindBy(id = "MainContent_LoginUser_RememberMe")
+    WebElement RememberMeCheckBox;
+
+    @FindBy(id = "MainContent_LoginUser_RememberMeLabel")
+    WebElement RememberMeLabel;
+
+    @FindBy(id = "transmark")
+    WebElement loginNotSuccessfulMsg;
+
+    @FindBy(id = "MainContent_LoginUser_LoginUserValidationSummary")
+    WebElement loginValidationMsg;
+
     public AnatolyLoginPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
@@ -51,7 +81,9 @@ public class AnatolyLoginPage extends Page {
     public void WaitLoginPageIsLoaded() {
         waitUntilIsLoadedCustomTime(loginButton, 10);
     }
-
+    public Boolean isLoginValidationMsgPresent(){
+        return verifyElementIsPresent(loginValidationMsg);
+    }
     public void Login(String username, String password) {
         WaitLoginPageIsLoaded();
         FillPassword(username);

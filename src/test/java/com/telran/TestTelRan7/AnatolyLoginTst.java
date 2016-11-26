@@ -4,6 +4,7 @@ import com.telran.TestNgTestBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -33,7 +34,15 @@ public class AnatolyLoginTst extends TestNgTestBase {
          loginPage.FillPassword("LinkCare!!11");
          loginPage.LoginClick();
      }
-
+    @Test
+    public void loginNegativeTest(){
+        //driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+        loginPage.WaitLoginPageIsLoaded();
+        loginPage.FillUserName("5000doctor");
+        loginPage.FillPassword("");
+        loginPage.LoginClick();
+        Assert.assertFalse(loginPage.isLoginValidationMsgPresent(), "User Adding do not successful");
+    }
 @AfterClass
      public void tearDown(){
          this.driver.quit();
