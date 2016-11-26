@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.anatoly;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +24,9 @@ public class AnatolyLoginPage extends Page {
     @FindBy(id = "MainContent_LoginUser_LoginButton")
     WebElement loginButton;
 
+    @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
+    WebElement regButton;
+
     public AnatolyLoginPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
@@ -32,26 +35,27 @@ public class AnatolyLoginPage extends Page {
 
 
     //check alert presence
-    public void FillUserName() {
-        setElementText(usernameField, "Login");
+    public void FillUserName(String username) {
+        setElementText(usernameField, username);
     }
 
-    public void FillPassword() {
-        setElementText(passwordField, "Password");
+    public void FillPassword(String password) {
+        setElementText(passwordField, password);
     }
-
-    public void LoginRun() {
+    public void LoginClick(){
         clickElement(loginButton);
     }
-
+    public void RegClick(){
+        clickElement(regButton);
+    }
     public void WaitLoginPageIsLoaded() {
         waitUntilIsLoadedCustomTime(loginButton, 10);
     }
 
-    public void Login() {
+    public void Login(String username, String password) {
         WaitLoginPageIsLoaded();
-        FillPassword();
-        FillUserName();
-        LoginRun();
+        FillPassword(username);
+        FillUserName(password);
+        LoginClick();
     }
 }
