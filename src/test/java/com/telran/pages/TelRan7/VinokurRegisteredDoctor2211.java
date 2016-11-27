@@ -52,10 +52,11 @@ public class VinokurRegisteredDoctor2211 extends Page {
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
     }
-
-    public void UserNameinput() {
-        setElementText(userName, "Doctor1");
+    public void buttonDoctorRegistration () {
+        clickElement(buttonDoctorRegistration);
     }
+
+    public void UserNameinput() { setElementText(userName, "Doctor1");}
 
     public void firstNameTxtinput() {
         setElementText(firstNameTxt, "Doctor1Name");
@@ -70,8 +71,7 @@ public class VinokurRegisteredDoctor2211 extends Page {
     }
 
     public void passwordinput() {
-        setElementText(password, "Linkcare!!11");
-    }
+        setElementText(password, "Linkcare!!11");}
 
     public void confirmPasswordinput() {
         setElementText(confirmPassword, "Linkcare");

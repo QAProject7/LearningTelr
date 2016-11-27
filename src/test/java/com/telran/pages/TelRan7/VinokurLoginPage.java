@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 /**
- * Created by
+ * Created by Vinokur on 24.11.2016.
  */
 public class VinokurLoginPage extends Page {
     // private static Logger Log = Logger.getLogger(LogLog4j.class.getName());
