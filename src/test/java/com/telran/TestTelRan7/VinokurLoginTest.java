@@ -1,6 +1,5 @@
 package com.telran.TestTelRan7;
 
-import com.telran.TestNgTestBase;
 import com.telran.pages.TelRan7.VinokurLoginPage;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -13,14 +12,17 @@ import org.testng.annotations.Test;
 /**
  * Created by user on 27.11.2016.
  */
-public class VinokurLoginTest extends TestNgTestBase{
+public class VinokurLoginTest{
     public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
 
     @BeforeClass   //(alwaysRun = true)????
     public void setup() {
-        vinokurLoginPage = PageFactory.initElements(driver, VinokurLoginPage.class);
+
+        System.setProperty("webdriver.gecko.driver",
+                "C:\\Users\\user\\Documents\\IdeaProjects\\geckodriver-v0.11.1-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
+        vinokurLoginPage = PageFactory.initElements(driver, VinokurLoginPage.class);
     }
     @BeforeMethod
     public void gotoLoginPage() {
