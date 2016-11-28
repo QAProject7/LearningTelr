@@ -20,7 +20,7 @@ public class VinokurLoginTest{
     public void setup() {
 
         System.setProperty("webdriver.gecko.driver",
-                "test\\resources\\geckodriver.exe");
+                "src\\test\\resources\\geckodriver.exe");
         driver = new FirefoxDriver();
         vinokurLoginPage = PageFactory.initElements(driver, VinokurLoginPage.class);
     }
