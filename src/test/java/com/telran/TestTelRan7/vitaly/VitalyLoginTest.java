@@ -16,13 +16,14 @@ import org.testng.annotations.Test;
 public class VitalyLoginTest {
 
     public VitalyLoginPage vitalyLoginPage;
-    WebDriver driver;
+    public WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
-        vitalyLoginPage = PageFactory.initElements(driver, VitalyLoginPage.class);
+
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\dashu\\Documents\\IdeaProjects\\LearningTelr\\Path\\geckodriver-v0.11.1-win32\\geckodriver.exe");
         driver = new FirefoxDriver();
+        vitalyLoginPage = PageFactory.initElements(driver, VitalyLoginPage.class);
     }
 
     @BeforeMethod
