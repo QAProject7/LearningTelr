@@ -19,6 +19,7 @@ public class IakovLoginTest {
     @BeforeClass(alwaysRun = true)
     public void setup() {
         iakovLoginPage = PageFactory.initElements(driver, IakovLoginPage.class);
+        System.setProperty("webdriver.gecko.driver", "C://QATols//geckodriver.exe");
         driver = new FirefoxDriver();
     }
 
