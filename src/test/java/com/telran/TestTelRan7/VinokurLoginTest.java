@@ -28,31 +28,31 @@ public class VinokurLoginTest extends TestNgTestBase{
     }
     @Test
     public void loginPositiveTest() {
-        VinokurLoginPage.WaitUntilLoginPageIsLoaded();
-        VinokurLoginPage.FillUsername("5000doctor");
-        VinokurLoginPage.FillPassword("LinkCare!!11");
-        VinokurLoginPage.ClickOnLogin();
+        vinokurLoginPage.WaitUntilLoginPageIsLoaded();
+        vinokurLoginPage.FillUsername("5000doctor");
+        vinokurLoginPage.FillPassword("LinkCare!!11");
+        vinokurLoginPage.ClickOnLogin();
     }
     @Test
     public void loginFullNegativeTest() {
-        VinokurLoginPage.WaitUntilLoginPageIsLoaded();
-        VinokurLoginPage.FillUsername("netTakogo");
-        VinokurLoginPage.FillPassword("parolyaTojeNet");
-        VinokurLoginPage.ClickOnLogin();
+        vinokurLoginPage.WaitUntilLoginPageIsLoaded();
+        vinokurLoginPage.FillUsername("netTakogo");
+        vinokurLoginPage.FillPassword("parolyaTojeNet");
+        vinokurLoginPage.ClickOnLogin();
     }
     @Test
     public void loginNegativeNullUserTest() {
-        VinokurLoginPage.WaitUntilLoginPageIsLoaded();
-        VinokurLoginPage.FillUsername("");
-        VinokurLoginPage.FillPassword("LinkCare!!11");
-        VinokurLoginPage.ClickOnLogin();
+        vinokurLoginPage.WaitUntilLoginPageIsLoaded();
+        vinokurLoginPage.FillUsername("");
+        vinokurLoginPage.FillPassword("LinkCare!!11");
+        vinokurLoginPage.ClickOnLogin();
     }
     @Test
     public void loginNegativeNullPasswordTest() {
-        VinokurLoginPage.WaitUntilLoginPageIsLoaded();
-        VinokurLoginPage.FillUsername("5000doctor");
-        VinokurLoginPage.FillPassword("");
-        VinokurLoginPage.ClickOnLogin();
+        vinokurLoginPage.WaitUntilLoginPageIsLoaded();
+        vinokurLoginPage.FillUsername("5000doctor");
+        vinokurLoginPage.FillPassword("");
+        vinokurLoginPage.ClickOnLogin();
     }
     @AfterClass
     public void tearDown() {

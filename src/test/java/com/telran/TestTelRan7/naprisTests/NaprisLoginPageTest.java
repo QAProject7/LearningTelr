@@ -20,7 +20,7 @@ public class NaprisLoginPageTest {
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
-        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\QATOOLS\\geckodriver.exe");
         driver = new FirefoxDriver();
         naprisloginPage = PageFactory.initElements(driver, NaprisLoginPage.class);
     }
