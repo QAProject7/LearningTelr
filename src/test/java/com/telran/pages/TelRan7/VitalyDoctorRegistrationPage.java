@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7.vitaliy;
+package com.telran.pages.TelRan7;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by vitaliy on 23.11.2016.
  */
-public class DoctorRegistration extends Page {
+public class VitalyDoctorRegistrationPage extends Page {
 
     //Fields
     @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
@@ -38,7 +38,7 @@ public class DoctorRegistration extends Page {
     WebElement SaveNewDoctorButton;
 
     //Methods
-    public DoctorRegistration(WebDriver driver) {
+    public VitalyDoctorRegistrationPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
@@ -52,52 +52,53 @@ public class DoctorRegistration extends Page {
         waitUntilIsLoadedCustomTime(UserName, 10);
     }
 
-    public void fillUserNameField() {
-        setElementText(UserName, "username");
+    public void fillUserNameField(String userName) {
+        setElementText(UserName, userName);
     }
 
-    public void fillFirstNameField() {
-        setElementText(FirstName, "firstname");
+    public void fillFirstNameField(String firstName) {
+        setElementText(FirstName, firstName);
     }
 
-    public void fillLastNameField() {
-        setElementText(LastName, "lastname");
+    public void fillLastNameField(String lastName) {
+        setElementText(LastName, lastName);
     }
 
-    public void fillEmailField() {
-        setElementText(Email, "gmail_email+258@gmail.com");
+    public void fillEmailField(String email) {
+        setElementText(Email, email);
     }
 
-    public void fillPasswordFields() {
-        setElementText(Passord, "password");
-        setElementText(RepeatThePassword, "password");
+    public void fillPasswordFields(String password) {
+        setElementText(Passord, password);
+        setElementText(RepeatThePassword, password);
     }
 
-    public void fillPersonalIdField() {
-        setElementText(PersonalId, "124521475");
+    public void fillPersonalIdField(String id) {
+        setElementText(PersonalId, id);
 
     }
 
-    public void fillAdressFields() {
-        setElementText(City, "City");
-        setElementText(Street, "Street");
-        setElementText(HouseNumber, "55");
+    public void fillAdressFields(String city, String street, String houseNumber) {
+        setElementText(City, city);
+        setElementText(Street, street);
+        setElementText(HouseNumber, houseNumber);
     }
 
     public void clickOnSaveNewDoctorButton() {
         clickElement(SaveNewDoctorButton);
     }
 
-    public void DoctorRegisttation() {
+    public void DoctorRegisttation(String username, String firstname, String lastname, String email, String password, String id,
+                                   String city, String street, String housenumber) {
         goToDoctorRegistration();
         waitUntilIsLoadedCusTime();
-        fillUserNameField();
-        fillFirstNameField();
-        fillLastNameField();
-        fillEmailField();
-        fillPasswordFields();
-        fillPersonalIdField();
-        fillAdressFields();
+        fillUserNameField(username);
+        fillFirstNameField(firstname);
+        fillLastNameField(lastname);
+        fillEmailField(email);
+        fillPasswordFields(password);
+        fillPersonalIdField(id);
+        fillAdressFields(city, street, housenumber);
         clickOnSaveNewDoctorButton();
     }
 }

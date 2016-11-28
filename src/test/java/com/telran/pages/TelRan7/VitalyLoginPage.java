@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7.vitaliy;
+package com.telran.pages.TelRan7;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Vitaliy
  */
-public class LoginPage extends Page {
+public class VitalyLoginPage extends Page {
     // private static Logger Log = Logger.getLogger(LogLog4j.class.getName());
 
 
@@ -28,18 +28,18 @@ public class LoginPage extends Page {
     //check alert presence
 
     //methods
-    public LoginPage(WebDriver driver) {
+    public VitalyLoginPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
     }
 
-    public void FillUserName() {
-        setElementText(usernameField, "Login");
+    public void FillUserName(String loginName) {
+        setElementText(usernameField, loginName);
     }
 
-    public void FillPassword() {
-        setElementText(passwordField, "password");
+    public void FillPassword(String password) {
+        setElementText(passwordField, password);
     }
 
     public void ClickLogIn() {
@@ -50,10 +50,10 @@ public class LoginPage extends Page {
         waitUntilIsLoadedCustomTime(LoginButton, 10);
     }
 
-    public void Login() {
+    public void Login(String userName, String password) {
         WaitUntilLoginPageIsLoaded();
-        FillUserName();
-        FillPassword();
+        FillUserName(userName);
+        FillPassword(password);
         ClickLogIn();
     }
 }
