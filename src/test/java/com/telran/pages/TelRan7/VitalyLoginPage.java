@@ -47,11 +47,12 @@ public class VitalyLoginPage extends Page {
     }
 
     public void WaitUntilLoginPageIsLoaded() {
+        // Thread.sleep(5000);
         waitUntilIsLoadedCustomTime(LoginButton, 10);
     }
 
     public void Login(String userName, String password) {
-        WaitUntilLoginPageIsLoaded();
+        //WaitUntilLoginPageIsLoaded();
         FillUserName(userName);
         FillPassword(password);
         ClickLogIn();

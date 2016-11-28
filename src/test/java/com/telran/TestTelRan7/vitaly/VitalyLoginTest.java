@@ -41,6 +41,12 @@ public class VitalyLoginTest {
     }
 
     @Test
+    public void loginTest() {
+        vitalyLoginPage.Login("", "");
+
+    }
+
+    @Test
     public void loginNegativeTest() {
         vitalyLoginPage.WaitUntilLoginPageIsLoaded();
         vitalyLoginPage.FillUserName("123");
@@ -57,7 +63,6 @@ public class VitalyLoginTest {
     }
 
     @Test
-
     public void loginNullPasswordTest() {
         vitalyLoginPage.WaitUntilLoginPageIsLoaded();
         vitalyLoginPage.FillUserName("5000doctor");
