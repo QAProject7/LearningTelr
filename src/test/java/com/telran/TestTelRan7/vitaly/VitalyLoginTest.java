@@ -57,6 +57,7 @@ public class VitalyLoginTest {
     }
 
     @Test
+
     public void loginNullPasswordTest() {
         vitalyLoginPage.WaitUntilLoginPageIsLoaded();
         vitalyLoginPage.FillUserName("5000doctor");
