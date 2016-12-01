@@ -10,19 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by
  */
-public class IakovLoginPage extends Page {
+public class IakovDoctorPage extends Page {
     // private static Logger Log = Logger.getLogger(LogLog4j.class.getName());
 
 
     //fields
-    @FindBy(id = "MainContent_LoginUser_UserName")
-    WebElement usernameField;
 
-    @FindBy(id = "MainContent_LoginUser_Password")
-    WebElement passwordField;
-
-    @FindBy(id = "MainContent_LoginUser_LoginButton")
-    WebElement LoginButton;
 
     @FindBy(id = "Top1_HeadLoginStatus")
     WebElement ExitLink;
@@ -30,7 +23,7 @@ public class IakovLoginPage extends Page {
     @FindBy(id = "ctl00_DisplayImportantLinks1_myMenu")
     WebElement DoctorsLeftMenu;
 
-    public IakovLoginPage(WebDriver driver) {
+    public IakovDoctorPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
@@ -39,28 +32,7 @@ public class IakovLoginPage extends Page {
 
     //check alert presence
 //methods
-    public void FillUsername(String username) {
-        setElementText(usernameField, username);
-    }
 
-    public void FillPassword(String password) {
-        setElementText(passwordField, password);
-    }
-
-    public void ClickOnLogin() {
-        clickElement(LoginButton);
-    }
-
-    public void WaitUntilLoginPageIsLoaded() {
-        waitUntilIsLoadedCustomTime(LoginButton, 10);
-    }
-
-    public void Login(String username, String password) {
-        WaitUntilLoginPageIsLoaded();
-        FillUsername(username);
-        FillPassword(password);
-        ClickOnLogin();
-    }
 
     public void WaitUntilDoctorPageIsLoaded() {
         waitUntilIsLoadedCustomTime(DoctorsLeftMenu, 10);
