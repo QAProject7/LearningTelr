@@ -11,10 +11,7 @@ import org.openqa.selenium.support.PageFactory;
  * Created by user on 22.11.2016.
  */
 public class VinokurRegisteredDoctor2211 extends Page {
-
-    @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
-    WebElement buttonDoctorRegistration;
-
+    //fields
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_UserName")
     WebElement userName;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_firstNameTxt")
@@ -22,11 +19,11 @@ public class VinokurRegisteredDoctor2211 extends Page {
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_lastNameTxt")
     WebElement lastNameTxt;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_Email")
-    WebElement email;
+    WebElement emailField;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_Password")
-    WebElement password;
+    WebElement passwordField;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_ConfirmPassword")
-    WebElement confirmPassword;
+    WebElement confirmPasswordField;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_PersonalIdTxt")
     WebElement PersonalIdTxt;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_clinicNameTxt")
@@ -42,87 +39,91 @@ public class VinokurRegisteredDoctor2211 extends Page {
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_CityTxt")
     WebElement cityTxt;
 
+    //buttons
+    @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
+    WebElement buttonDoctorRegistration;
     @FindBy(id = "MainContent_AddNewUser")
-    WebElement addNewUser;
+    WebElement addNewDoctor;
 
-//  methods
 
+
+
+    //constructor
     public VinokurRegisteredDoctor2211(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
     }
-    public void buttonDoctorRegistration () {
-        clickElement(buttonDoctorRegistration);
+    //  methods
+
+    public void waitUntilLoginPageIsLoaded() {waitUntilIsLoadedCustomTime(buttonDoctorRegistration,10);}
+
+    public void waitUntilDoctorRegButtonIsLoaded() {waitUntilIsLoadedCustomTime(addNewDoctor,10);}
+
+    public void clickDoctorRegistrationLink () {clickElement(buttonDoctorRegistration);}
+
+    public void fillUserName(String username) { setElementText(userName, username);}
+
+    public void fillFirstName(String firstName) {
+        setElementText(firstNameTxt, firstName);
     }
 
-    public void UserNameinput() { setElementText(userName, "Doctor1");}
+    public void fillLastName(String lastName) {setElementText(lastNameTxt, lastName);}
 
-    public void firstNameTxtinput() {
-        setElementText(firstNameTxt, "Doctor1Name");
+    public void fillEmail(String email) {setElementText(emailField, email);}
+
+    public void fillPassword(String password) {setElementText(passwordField, password);}
+
+    public void fillConfirmPassword(String confirmPassword) {setElementText(confirmPasswordField, confirmPassword);}
+
+    public void fillPersonalId(String personalId) {setElementText(PersonalIdTxt, personalId);}
+
+    public void fillClinic(String clinicName) {
+        setElementText(clinicNameTxt, clinicName);
     }
 
-    public void lastNameTxtinput() {
-        setElementText(lastNameTxt, "Doctor1Family");
+    public void fillBirthday(String birthday) { setElementText  (birthdayTxt, birthday);}
+
+    public void fillContactCell(String contactCell) {setElementText(contactCellTxt, contactCell);}
+
+    public void fillAddress(String address) {
+        setElementText(addressTxt, address);
     }
 
-    public void emailinput() {
-        setElementText(email, "Doctor1@mail.ru");
+    public void fillHouseNumber(String houseNumber) {
+        setElementText(houseNumberTxt, houseNumber);
     }
 
-    public void passwordinput() {
-        setElementText(password, "Linkcare!!11");}
-
-    public void confirmPasswordinput() {
-        setElementText(confirmPassword, "Linkcare");
+    public void fillCity(String city) {
+        setElementText(cityTxt, city);
     }
 
-    public void PersonalIdTxtinput() {
-        setElementText(PersonalIdTxt, "085848356");
+    public void clickAddNewDoctor() {
+        clickElement(addNewDoctor);
     }
 
-    public void clinicNameTxtinput() {
-        setElementText(clinicNameTxt, "Marshak");
+    public void registrationDoctorFillForm
+            (String username, String firstName, String lastName, String email, String password,
+            String confirmPassword,String personalId,String clinicName, String birthday,
+             String contactCell,String address, String houseNumber, String city){
+        waitUntilLoginPageIsLoaded();
+        clickDoctorRegistrationLink ();
+        waitUntilDoctorRegButtonIsLoaded();
+        fillUserName(username);
+        fillFirstName(firstName);
+        fillLastName(lastName);
+        fillEmail(email);
+        fillPassword(password);
+        fillConfirmPassword(confirmPassword);
+        fillPersonalId(personalId);
+        fillClinic(clinicName);
+        fillBirthday(birthday);
+        fillContactCell(contactCell);
+        fillAddress(address);
+        fillHouseNumber(houseNumber);
+        fillCity(city);
+        clickAddNewDoctor();
     }
 
-    public void birthdayTxtinput() {
-        //!!!!     setDate  (birthdayTxt, "2001-11-11");
-    }
-
-    public void contactCellTxtinput() {
-        setElementText(contactCellTxt, "0587909999");
-    }
-
-    public void addressTxtinput() {
-        setElementText(addressTxt, "Rehov 1");
-    }
-
-    public void houseNumberTxtinput() {
-        setElementText(houseNumberTxt, "33");
-    }
-
-    public void cityTxtinput() {
-        setElementText(cityTxt, "City1");
-    }
-
-    public void RegisteredDocButton() {
-        clickElement(addNewUser);
-    }
-
-
-    // methods
-
-    public void setElementText(WebElement element, String text) {
-        element.click();
-        element.clear();
-        //Log.info("entering text '" + text + "' into element " + element);
-        element.sendKeys(text);
-        // Assert.assertEquals(element.getAttribute("value"), text);
-    }
-
-    public void clickElement(WebElement element) {
-        // Log.info("clicking on element " + element + "");
-        element.click();
-    }
 
 }

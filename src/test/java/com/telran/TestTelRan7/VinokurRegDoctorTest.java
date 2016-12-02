@@ -1,9 +1,9 @@
 package com.telran.TestTelRan7;
 
 import com.telran.TestNgTestBase;
-import org.junit.BeforeClass;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,14 @@ import org.testng.annotations.Test;
 public class VinokurRegDoctorTest extends TestNgTestBase {
     public VinokurRegDoctorTest vinokurRegDoctorTest;
 
-    @BeforeClass   //(alwaysRun = true)????
+
+
+
+
+
+
+
+    @BeforeClass   (alwaysRun = true)
     public void setup() {
         vinokurRegDoctorTest = PageFactory.initElements(driver, VinokurRegDoctorTest.class);
         driver = new FirefoxDriver();
