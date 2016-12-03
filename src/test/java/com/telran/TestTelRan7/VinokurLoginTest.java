@@ -1,6 +1,6 @@
 package com.telran.TestTelRan7;
 
-import com.telran.pages.TelRan7.VinokurLoginPage;
+import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;

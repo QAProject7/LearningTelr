@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.vinokurPagesClasses;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -46,9 +46,7 @@ public class VinokurLoginPage extends Page {
         clickElement(LoginButton);
     }
 
-    public void WaitUntilLoginPageIsLoaded() {
-        waitUntilIsLoadedCustomTime(LoginButton, 10);
-    }
+    public void WaitUntilLoginPageIsLoaded() { waitUntilIsLoadedCustomTime(LoginButton, 10);}
 
     public void Login(String username, String password) {
         WaitUntilLoginPageIsLoaded();

@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.vinokurPagesClasses;
 
 
 import com.telran.pages.Page;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by user on 22.11.2016.
  */
-public class VinokurRegisteredDoctor2211 extends Page {
+public class VinokurRegisteredDoctorPage extends Page {
     //fields
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_UserName")
     WebElement userName;
@@ -49,7 +49,7 @@ public class VinokurRegisteredDoctor2211 extends Page {
 
 
     //constructor
-    public VinokurRegisteredDoctor2211(WebDriver driver) {
+    public VinokurRegisteredDoctorPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
         PageFactory.initElements(driver, this);
