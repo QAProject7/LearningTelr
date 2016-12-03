@@ -1,4 +1,4 @@
-package com.telran.TestTelRan7;
+package com.telran.TestTelRan7.VinokurTestsClasses;
 
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurLoginPage;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class VinokurLoginTest{
     public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
 
-    @BeforeClass(alwaysRun = true)  //(alwaysRun = true)????
+    @BeforeClass(alwaysRun = true)
     public void setup() {
 
         System.setProperty("webdriver.gecko.driver",
