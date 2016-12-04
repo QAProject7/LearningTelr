@@ -42,7 +42,7 @@ public class IakovLoginTest {
         iakovLoginPage.FillPassword("LinkCare!!11");
         iakovLoginPage.ClickOnLogin();
         iakovDoctorPage.WaitUntilDoctorPageIsLoaded();
-       // AssertJUnit.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink()5);
+       //  COMMITTED BY VINOKUR AssertJUnit.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink()5);
         Assert.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink());
 
         // .assertTrue(iakovLoginPage.isOnDoctorPage(),"We are not on doctor's page");

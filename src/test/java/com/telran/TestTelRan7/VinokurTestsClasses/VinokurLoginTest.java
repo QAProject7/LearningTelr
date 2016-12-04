@@ -40,8 +40,8 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("LinkCare!!11");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertTrue(vinokurDoctorPage.IsOnDoctorPage(),"LOGIN NOT FINISHED");
-        Assert.assertEquals("יציאה", vinokurDoctorPage.GetTextFromExitLink(),"LOGIN NOT FINISHED");
+        Assert.assertTrue(vinokurDoctorPage.IsOnDoctorPage(),"login NOT FINISHED");
+        Assert.assertEquals("יציאה", vinokurDoctorPage.GetTextFromExitLink(),"login NOT FINISHED");
     }
     @Test
     public void loginFullNegativeTest() {
@@ -50,7 +50,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("parolyaTojeNet");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"LOGIN FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
 
     }
     @Test
@@ -60,7 +60,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("LinkCare!!11");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"LOGIN FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
     }
     @Test
     public void loginNegativeNullPasswordTest() {
@@ -69,7 +69,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"LOGIN FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
     }
     @AfterClass
     public void tearDown() {

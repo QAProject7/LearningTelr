@@ -16,12 +16,12 @@ import org.testng.annotations.Test;
  */
 public class VinokurRegisteredDoctorTest {
     public static final String PASSWORD = "LinkCare!!11";
-    private static final String FIRST_NAME = "Ivan1";
-    private static final String LAST_NAME = "Ivanoff1";
+    private static final String FIRST_NAME = "Nikita1";
+    private static final String LAST_NAME = "Dudikov1";
     public static final String USERNAME = FIRST_NAME + " " + LAST_NAME;
-    private static final String EMAIL = "iivanov1@yopmail.com";
+    private static final String EMAIL = LAST_NAME + "@yopmail.com";
     private static final String PERSONAL_ID = "201820743";
-    private static final String CLINIC_NAME = "aaaaaa";
+    private static final String CLINIC_NAME = "Marshak";
     private static final String BIRTHDAY = "11-11-1965";
     private static final String CONTACT_CELL = "0521111111";
     private static final String STREET = "Plaut";
