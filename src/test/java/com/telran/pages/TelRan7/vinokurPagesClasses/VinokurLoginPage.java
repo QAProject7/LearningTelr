@@ -24,6 +24,11 @@ public class VinokurLoginPage extends Page {
     @FindBy(id = "MainContent_LoginUser_LoginButton")
     WebElement LoginButton;
 
+    @FindBy(id = "Top1_HeadLoginView_DisplayName")
+    WebElement DoctorLink;
+
+    @FindBy(id = "Top1_HeadLoginStatus")
+    WebElement ExitLink;
 
     public VinokurLoginPage(WebDriver driver) {
         super(driver);
@@ -32,7 +37,7 @@ public class VinokurLoginPage extends Page {
     }
 
 
-    //check alert presence
+
 //methods
     public void FillUsername(String username) {
         setElementText(usernameField, username);
@@ -48,6 +53,8 @@ public class VinokurLoginPage extends Page {
 
     public void WaitUntilLoginPageIsLoaded() { waitUntilIsLoadedCustomTime(LoginButton, 10);}
 
+    public void WaitUntilDoctorPageIsLoaded (){ waitUntilIsLoadedCustomTime(DoctorLink, 10);}
+
     public void Login(String username, String password) {
         WaitUntilLoginPageIsLoaded();
         FillUsername(username);
@@ -55,4 +62,10 @@ public class VinokurLoginPage extends Page {
         ClickOnLogin();
     }
 
+    public boolean IsOnDoctorPage() {
+        return exists(DoctorLink);}
+
+    public String GetTextFromExitPage(){
+        return ExitLink.getText();
+    }
 }

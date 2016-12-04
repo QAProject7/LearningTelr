@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -43,7 +42,7 @@ public class IakovLoginTest {
         iakovLoginPage.FillPassword("LinkCare!!11");
         iakovLoginPage.ClickOnLogin();
         iakovDoctorPage.WaitUntilDoctorPageIsLoaded();
-        AssertJUnit.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink());
+       // AssertJUnit.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink()5);
         Assert.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink());
 
         // .assertTrue(iakovLoginPage.isOnDoctorPage(),"We are not on doctor's page");
