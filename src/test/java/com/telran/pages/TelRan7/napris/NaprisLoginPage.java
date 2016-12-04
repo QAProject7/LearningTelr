@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.napris;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
