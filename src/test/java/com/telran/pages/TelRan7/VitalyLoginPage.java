@@ -25,6 +25,7 @@ public class VitalyLoginPage extends Page {
     WebElement LoginButton;
 
 
+
     //check alert presence
 
     //methods
@@ -52,9 +53,11 @@ public class VitalyLoginPage extends Page {
     }
 
     public void Login(String userName, String password) {
-        //WaitUntilLoginPageIsLoaded();
+        WaitUntilLoginPageIsLoaded();
         FillUserName(userName);
         FillPassword(password);
         ClickLogIn();
+
     }
+
 }

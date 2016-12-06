@@ -1,10 +1,13 @@
 package com.telran.TestTelRan7.vitaly;
 
 
+import com.telran.pages.TelRan7.VitalyDoctorRegistrationPage;
 import com.telran.pages.TelRan7.VitalyLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -16,14 +19,16 @@ import org.testng.annotations.Test;
 public class VitalyLoginTest {
 
     public VitalyLoginPage vitalyLoginPage;
+    public VitalyDoctorRegistrationPage vitalyDoctorRegistrationPage;
     public WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
 
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\dashu\\Documents\\IdeaProjects\\LearningTelr\\Path\\geckodriver-v0.11.1-win32\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
         driver = new FirefoxDriver();
         vitalyLoginPage = PageFactory.initElements(driver, VitalyLoginPage.class);
+        vitalyDoctorRegistrationPage = PageFactory.initElements(driver, VitalyDoctorRegistrationPage.class);
     }
 
     @BeforeMethod
@@ -35,16 +40,15 @@ public class VitalyLoginTest {
     @Test
     public void loginPositiveTest() {
         vitalyLoginPage.WaitUntilLoginPageIsLoaded();
-        vitalyLoginPage.FillUserName("5000doctor");
+        vitalyLoginPage.FillUserName("5555Doctor");
         vitalyLoginPage.FillPassword("LinkCare!!11");
         vitalyLoginPage.ClickLogIn();
+        vitalyDoctorRegistrationPage.waitUntilDoctorsPageIsLoaded();
+        Assert.assertTrue(vitalyDoctorRegistrationPage.isOnDoctorPage(), "We are not on doctor`s page");
+        Assert.assertEquals("יציאה", vitalyDoctorRegistrationPage.getTextFromExitLink());
+        AssertJUnit.assertEquals("יציאה", vitalyDoctorRegistrationPage.getTextFromExitLink());
     }
 
-    @Test
-    public void loginTest() {
-        vitalyLoginPage.Login("", "");
-
-    }
 
     @Test
     public void loginNegativeTest() {
@@ -65,7 +69,7 @@ public class VitalyLoginTest {
     @Test
     public void loginNullPasswordTest() {
         vitalyLoginPage.WaitUntilLoginPageIsLoaded();
-        vitalyLoginPage.FillUserName("5000doctor");
+        vitalyLoginPage.FillUserName("5555Doctor");
         vitalyLoginPage.FillPassword("");
         vitalyLoginPage.ClickLogIn();
     }
@@ -74,4 +78,5 @@ public class VitalyLoginTest {
     public void tearDown() {
         this.driver.quit();
     }
+
 }

@@ -36,6 +36,12 @@ public class VitalyDoctorRegistrationPage extends Page {
     WebElement City;
     @FindBy(id = "MainContent_AddNewUser")
     WebElement SaveNewDoctorButton;
+    @FindBy(id = "Top1_HeadLoginStatus")
+    WebElement ExitLink;
+
+    @FindBy(id = "ctl00_DisplayImportantLinks1_myMenu")
+    WebElement DoctorsRightMenu;
+
 
     //Methods
     public VitalyDoctorRegistrationPage(WebDriver driver) {
@@ -100,5 +106,17 @@ public class VitalyDoctorRegistrationPage extends Page {
         fillPersonalIdField(id);
         fillAdressFields(city, street, housenumber);
         clickOnSaveNewDoctorButton();
+    }
+
+    public void waitUntilDoctorsPageIsLoaded() {
+        waitUntilIsLoadedCustomTime(DoctorsRightMenu, 10);
+    }
+
+    public boolean isOnDoctorPage() {
+        return exists(ExitLink);
+    }
+
+    public String getTextFromExitLink() {
+        return ExitLink.getText();
     }
 }
