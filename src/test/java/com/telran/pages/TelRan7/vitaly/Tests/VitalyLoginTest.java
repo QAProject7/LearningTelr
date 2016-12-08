@@ -1,10 +1,9 @@
-package com.telran.TestTelRan7.vitaly;
+package com.telran.pages.TelRan7.vitaly.Tests;
 
 
-import com.telran.pages.TelRan7.VitalyDoctorRegistrationPage;
-import com.telran.pages.TelRan7.VitalyLoginPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import com.telran.TestNgTestBase;
+import com.telran.pages.TelRan7.vitaly.Pages.VitalyDoctorRegistrationPage;
+import com.telran.pages.TelRan7.vitaly.Pages.VitalyLoginPage;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
@@ -16,17 +15,17 @@ import org.testng.annotations.Test;
 /**
  * Created by vitaliy on 28.11.2016.
  */
-public class VitalyLoginTest {
+public class VitalyLoginTest extends TestNgTestBase {
 
     public VitalyLoginPage vitalyLoginPage;
     public VitalyDoctorRegistrationPage vitalyDoctorRegistrationPage;
-    public WebDriver driver;
+    // public WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
 
-        System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        //  System.setProperty("webdriver.gecko.driver", "src\\test\\resources\\geckodriver.exe");
+        //  driver = new FirefoxDriver();
         vitalyLoginPage = PageFactory.initElements(driver, VitalyLoginPage.class);
         vitalyDoctorRegistrationPage = PageFactory.initElements(driver, VitalyDoctorRegistrationPage.class);
     }
@@ -56,6 +55,7 @@ public class VitalyLoginTest {
         vitalyLoginPage.FillUserName("123");
         vitalyLoginPage.FillPassword("456");
         vitalyLoginPage.ClickLogIn();
+        Assert.assertFalse(vitalyDoctorRegistrationPage.isOnDoctorPage(), "Login is passed");
     }
 
     @Test
@@ -64,6 +64,7 @@ public class VitalyLoginTest {
         vitalyLoginPage.FillUserName(" ");
         vitalyLoginPage.FillPassword("LinkCare!!11");
         vitalyLoginPage.ClickLogIn();
+        Assert.assertFalse(vitalyDoctorRegistrationPage.isOnDoctorPage(), "Login is passed");
     }
 
     @Test
@@ -72,6 +73,7 @@ public class VitalyLoginTest {
         vitalyLoginPage.FillUserName("5555Doctor");
         vitalyLoginPage.FillPassword("");
         vitalyLoginPage.ClickLogIn();
+        Assert.assertFalse(vitalyDoctorRegistrationPage.isOnDoctorPage(), "Login is passed");
     }
 
     @AfterClass

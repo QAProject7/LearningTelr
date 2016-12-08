@@ -1,6 +1,8 @@
-package com.telran.TestTelRan7.vitaly;
+package com.telran.pages.TelRan7.vitaly.Tests;
 
-import com.telran.pages.TelRan7.VitalyDoctorRegistrationPage;
+import com.telran.pages.TelRan7.vitaly.Pages.VitalyDoctorRegistrationPage;
+import com.telran.pages.TelRan7.vitaly.Pages.VitalyLoginPage;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +26,7 @@ public class VitalyDoctorRegistrationTest {
     private static final String HOUSE_NUMBER = "30";
     private static final String CITY = "Haifa";
     public VitalyDoctorRegistrationPage vitalyDoctorRegistrationPage;
+    public VitalyLoginPage vitalyLoginPage;
     public WebDriver driver;
 
     @BeforeClass(alwaysRun = true)
@@ -36,11 +39,15 @@ public class VitalyDoctorRegistrationTest {
 
     @BeforeMethod
     public void gotoLoginPage() {
-        driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+        driver.get("http://dhclinicappv2stg.item-soft.co.il/SitePages/createUser.aspx?ReturnUrl=HomePage");
+
+        // vitalyDoctorRegistrationPage.regClick();
     }
 
+    @Test
     public void registrationDoctorPositive() {
-        vitalyDoctorRegistrationPage.goToDoctorRegistration();
+        vitalyDoctorRegistrationPage.WaitRegPageIsLoaded();
+        vitalyDoctorRegistrationPage.isOnRegistrationPage();
         vitalyDoctorRegistrationPage.waitUntilIsLoadedCusTime();
         vitalyDoctorRegistrationPage.fillUserNameField(USERNAME);
         vitalyDoctorRegistrationPage.fillFirstNameField(FIRST_NAME);
@@ -48,6 +55,9 @@ public class VitalyDoctorRegistrationTest {
         vitalyDoctorRegistrationPage.fillEmailField(EMAIL);
         vitalyDoctorRegistrationPage.fillPasswordFields(PASSWORD);
         vitalyDoctorRegistrationPage.fillPersonalIdField(PERSONAL_ID);
+        vitalyDoctorRegistrationPage.fillClinicNameTxtField(CLINIC_NAME);
+        vitalyDoctorRegistrationPage.fillBirthdayTxtField(BIRTHDAY);
+        vitalyDoctorRegistrationPage.fillContactCellTxtField(CONTACT_CELL);
         vitalyDoctorRegistrationPage.fillAdressFields(CITY, STREET, HOUSE_NUMBER);
         vitalyDoctorRegistrationPage.clickOnSaveNewDoctorButton();
     }
