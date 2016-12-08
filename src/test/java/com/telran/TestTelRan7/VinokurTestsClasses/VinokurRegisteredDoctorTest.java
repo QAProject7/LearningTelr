@@ -1,6 +1,7 @@
+/*
 package com.telran.TestTelRan7.VinokurTestsClasses;
 
-import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurDoctorPage;
+
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurRegisteredDoctorPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -11,9 +12,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+*/
 /**
  * Created by Vinokur on 27.11.2016.
- */
+ *//*
+
 public class VinokurRegisteredDoctorTest {
     public static final String PASSWORD = "LinkCare!!11";
     private static final String FIRST_NAME = "Nikita1";
@@ -31,7 +34,7 @@ public class VinokurRegisteredDoctorTest {
 
     public WebDriver driver;
     public VinokurRegisteredDoctorPage vinokurRegisteredDoctorPage;
-    public VinokurDoctorPage vinokurDoctorPage;
+  public VinokurRegisteredDoctorPage vinokurDoctorPage;
 
 
 
@@ -41,7 +44,7 @@ public class VinokurRegisteredDoctorTest {
                 "src\\test\\resources\\geckodriver.exe");
         driver = new FirefoxDriver();
         vinokurRegisteredDoctorPage = PageFactory.initElements(driver, VinokurRegisteredDoctorPage.class);
-        vinokurDoctorPage = PageFactory.initElements(driver, VinokurDoctorPage.class);
+       vinokurDoctorPage = PageFactory.initElements(driver, VinokurRegisteredDoctorPage.class);
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -85,3 +88,4 @@ public class VinokurRegisteredDoctorTest {
     }
 }
 
+*/

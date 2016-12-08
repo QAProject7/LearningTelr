@@ -1,3 +1,4 @@
+/*
 package com.telran.TestTelRan7.VinokurTestsClasses;
 
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurDoctorPage;
@@ -11,9 +12,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+*/
 /**
  * Created by Vinokur on 27.11.2016.
- */
+ *//*
+
 public class VinokurLoginTest{
     public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
@@ -77,3 +80,4 @@ public class VinokurLoginTest{
     }
 }
 
+*/

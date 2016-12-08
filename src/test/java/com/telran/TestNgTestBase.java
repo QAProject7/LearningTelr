@@ -29,11 +29,12 @@ public class TestNgTestBase {
       gridHubUrl = null;
     }
     capabilities = PropertyLoader.loadCapabilities();
+    driver = WebDriverPool.DEFAULT.getDriver(gridHubUrl, capabilities);
   }
 
   @BeforeMethod
   public void initWebDriver() {
-    driver = WebDriverPool.DEFAULT.getDriver(gridHubUrl, capabilities);
+
   }
 
   @AfterSuite(alwaysRun = true)
