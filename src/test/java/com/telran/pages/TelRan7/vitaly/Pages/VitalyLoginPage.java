@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.vitaly.Pages;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;

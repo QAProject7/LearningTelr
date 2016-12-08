@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7;
+package com.telran.pages.TelRan7.vitaly.Pages;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +13,7 @@ public class VitalyDoctorRegistrationPage extends Page {
 
     //Fields
     @FindBy(id = "MainContent_LoginUser_RegisterHyperLink")
-    WebElement GoToDoctorRegistration;
+    WebElement RegButton;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_UserName")
     WebElement UserName;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_firstNameTxt")
@@ -35,9 +35,15 @@ public class VitalyDoctorRegistrationPage extends Page {
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_CityTxt")
     WebElement City;
     @FindBy(id = "MainContent_AddNewUser")
-    WebElement SaveNewDoctorButton;
+    WebElement addDoctorButton;
     @FindBy(id = "Top1_HeadLoginStatus")
     WebElement ExitLink;
+    @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_clinicNameTxt")
+    WebElement clinicNameTxt;
+    @FindBy(id = "ctl00_MainContent_RegisterUser_CreateUserStepContainer_birthdayTxt_dateInput")
+    WebElement birthdayTxt;
+    @FindBy(id = "ctl00_MainContent_RegisterUser_CreateUserStepContainer_ContactCellTxt")
+    WebElement contactCellTxt;
 
     @FindBy(id = "ctl00_DisplayImportantLinks1_myMenu")
     WebElement DoctorsRightMenu;
@@ -46,14 +52,14 @@ public class VitalyDoctorRegistrationPage extends Page {
     //Methods
     public VitalyDoctorRegistrationPage(WebDriver driver) {
         super(driver);
-        this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
+        baseUrl = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
+        this.PAGE_URL = baseUrl + "/SitePages/createUser.aspx?ReturnUrl=HomePage";
         PageFactory.initElements(driver, this);
     }
 
-    public void goToDoctorRegistration() {
-        clickElement(GoToDoctorRegistration);
+    public void regClick() {
+        RegButton.click();
     }
-
     public void waitUntilIsLoadedCusTime() {
         waitUntilIsLoadedCustomTime(UserName, 10);
     }
@@ -74,6 +80,26 @@ public class VitalyDoctorRegistrationPage extends Page {
         setElementText(Email, email);
     }
 
+    public void fillClinicNameTxtField(String clinicName) {
+        setElementText(clinicNameTxt, clinicName);
+    }
+
+    public void fillBirthdayTxtField(String birthday) {
+        setElementText(birthdayTxt, birthday);
+    }
+
+    public void fillContactCellTxtField(String contactCell) {
+        setElementText(contactCellTxt, contactCell);
+    }
+
+    public void WaitRegPageIsLoaded() {
+        waitUntilIsLoadedCustomTime(addDoctorButton, 10);
+    }
+
+    public boolean isOnRegistrationPage() {
+        return exists(addDoctorButton);
+    }
+
     public void fillPasswordFields(String password) {
         setElementText(Passord, password);
         setElementText(RepeatThePassword, password);
@@ -91,19 +117,22 @@ public class VitalyDoctorRegistrationPage extends Page {
     }
 
     public void clickOnSaveNewDoctorButton() {
-        clickElement(SaveNewDoctorButton);
+        clickElement(addDoctorButton);
     }
 
     public void DoctorRegisttation(String username, String firstname, String lastname, String email, String password, String id,
-                                   String city, String street, String housenumber) {
-        goToDoctorRegistration();
-        waitUntilIsLoadedCusTime();
+                                   String city, String street, String housenumber, String clinicName, String birthday, String cell) {
+        WaitRegPageIsLoaded();
+        isOnRegistrationPage();
         fillUserNameField(username);
         fillFirstNameField(firstname);
         fillLastNameField(lastname);
         fillEmailField(email);
         fillPasswordFields(password);
         fillPersonalIdField(id);
+        fillClinicNameTxtField(clinicName);
+        fillBirthdayTxtField(birthday);
+        fillContactCellTxtField(cell);
         fillAdressFields(city, street, housenumber);
         clickOnSaveNewDoctorButton();
     }
