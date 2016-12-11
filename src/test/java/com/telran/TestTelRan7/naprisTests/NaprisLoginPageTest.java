@@ -1,38 +1,40 @@
 package com.telran.TestTelRan7.naprisTests;
 
+import com.telran.TestNgTestBase;
 import com.telran.pages.TelRan7.napris.NaprisDoctorPage;
 import com.telran.pages.TelRan7.napris.NaprisLoginPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.AssertJUnit;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.testng.annotations.AfterClass;
+
 
 /**
  * Created by Napris on 27.11.2016.
  */
-public class NaprisLoginPageTest {
+public class NaprisLoginPageTest extends TestNgTestBase {
     public static final String DEFAULT_USERNAME = "Doctor";
     public static final String DEFAULT_PASSWORD = "LinkCare!!11";
-    public WebDriver driver;
+    //public WebDriver driver;
     public NaprisLoginPage naprisloginPage;
     public NaprisDoctorPage doctorPage;
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
-        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        //System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
+        //driver = new FirefoxDriver();
         naprisloginPage = PageFactory.initElements(driver, NaprisLoginPage.class);
         doctorPage = PageFactory.initElements(driver, NaprisDoctorPage.class);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void goToLoginPage() {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
     }
@@ -67,9 +69,8 @@ public class NaprisLoginPageTest {
         AssertJUnit.assertEquals("Login", doctorPage.getTextFromExitLink());
     }
 
-    @AfterClass
+    //@AfterClass
     public void tearDown() {
         this.driver.quit();
     }
-
 }
