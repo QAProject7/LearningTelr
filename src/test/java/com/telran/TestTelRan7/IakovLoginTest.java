@@ -32,7 +32,7 @@ public class IakovLoginTest extends TestNgTestBase {
 
     }
 
-    @Test
+    @Test(groups = {"login", "positive"})
     public void loginPositiveTest() {
 
         iakovLoginPage.WaitUntilLoginPageIsLoaded();
@@ -41,12 +41,12 @@ public class IakovLoginTest extends TestNgTestBase {
         iakovLoginPage.ClickOnLogin();
         iakovDoctorPage.WaitUntilDoctorPageIsLoaded();
        //  COMMITTED BY VINOKUR AssertJUnit.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink()5);
-        Assert.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink());
+        Assert.assertEquals("יציאה", iakovDoctorPage.GettextFromExitLink(), "this link do not exists");
 
         // .assertTrue(iakovLoginPage.isOnDoctorPage(),"We are not on doctor's page");
     }
 
-    @Test
+    @Test(groups = {"login", "negative"})
     public void loginNegativeTest() {
 
         iakovLoginPage.WaitUntilLoginPageIsLoaded();

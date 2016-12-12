@@ -4,7 +4,6 @@ import com.telran.util.PropertyLoader;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ru.stqa.selenium.factory.WebDriverPool;
 
@@ -32,10 +31,7 @@ public class TestNgTestBase {
     driver = WebDriverPool.DEFAULT.getDriver(gridHubUrl, capabilities);
   }
 
-  @BeforeMethod
-  public void initWebDriver() {
 
-  }
 
   @AfterSuite(alwaysRun = true)
   public void tearDown() {
