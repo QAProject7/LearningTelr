@@ -1,7 +1,6 @@
-/*
+
 package com.telran.TestTelRan7.VinokurTestsClasses;
 
-import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurDoctorPage;
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurLoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,15 +11,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-*/
 /**
  * Created by Vinokur on 27.11.2016.
- *//*
+ */
 
 public class VinokurLoginTest{
     public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
-    public VinokurDoctorPage vinokurDoctorPage;
+
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
@@ -29,7 +27,6 @@ public class VinokurLoginTest{
                 "src\\test\\resources\\geckodriver.exe");
         driver = new FirefoxDriver();
         vinokurLoginPage = PageFactory.initElements(driver, VinokurLoginPage.class);
-        vinokurDoctorPage = PageFactory.initElements(driver, VinokurDoctorPage.class);
     }
 
     @BeforeMethod(alwaysRun = true)
@@ -43,8 +40,8 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("LinkCare!!11");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertTrue(vinokurDoctorPage.IsOnDoctorPage(),"login NOT FINISHED");
-        Assert.assertEquals("יציאה", vinokurDoctorPage.GetTextFromExitLink(),"login NOT FINISHED");
+        Assert.assertTrue(vinokurLoginPage.IsOnDoctorPage(),"login NOT FINISHED");
+        Assert.assertEquals("יציאה", vinokurLoginPage.GetTextFromExitLink(),"login NOT FINISHED");
     }
     @Test
     public void loginFullNegativeTest() {
@@ -53,7 +50,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("parolyaTojeNet");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"login FINISHED in Negative test");
 
     }
     @Test
@@ -63,7 +60,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("LinkCare!!11");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"login FINISHED in Negative test");
     }
     @Test
     public void loginNegativeNullPasswordTest() {
@@ -72,7 +69,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.FillPassword("");
         vinokurLoginPage.ClickOnLogin();
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
-        Assert.assertEquals("Login", vinokurDoctorPage.GetTextFromExitLink(),"login FINISHED in Negative test");
+        Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"login FINISHED in Negative test");
     }
     @AfterClass
     public void tearDown() {
@@ -80,4 +77,4 @@ public class VinokurLoginTest{
     }
 }
 
-*/
+

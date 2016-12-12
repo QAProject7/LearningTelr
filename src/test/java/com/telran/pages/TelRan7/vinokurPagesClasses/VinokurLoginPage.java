@@ -30,6 +30,10 @@ public class VinokurLoginPage extends Page {
     @FindBy(id = "Top1_HeadLoginStatus")
     WebElement ExitLink;
 
+    @FindBy(id = "Top1_HeadLoginView_DisplayName")
+    WebElement DoctorNameLink;
+
+
     public VinokurLoginPage(WebDriver driver) {
         super(driver);
         this.PAGE_URL = "http://dhclinicappv2stg.item-soft.co.il/Login.aspx";
@@ -62,10 +66,10 @@ public class VinokurLoginPage extends Page {
         ClickOnLogin();
     }
 
-    public boolean IsOnDoctorPage() {
-        return exists(DoctorLink);}
-
-    public String GetTextFromExitPage(){
+    public String GetTextFromExitLink(){
         return ExitLink.getText();
     }
+
+    public boolean IsOnDoctorPage() {return exists(DoctorNameLink);}
+
 }
