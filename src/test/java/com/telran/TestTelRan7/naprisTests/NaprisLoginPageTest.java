@@ -39,7 +39,7 @@ public class NaprisLoginPageTest extends TestNgTestBase {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
     }
 
-    @Test(groups = {"positive"})
+    @Test(groups = {"login", "positive"})
     public void loginTest() {
         naprisloginPage.login(DEFAULT_USERNAME, DEFAULT_PASSWORD);
         doctorPage.waitUntilDoctorPageIsLoaded();
@@ -48,21 +48,21 @@ public class NaprisLoginPageTest extends TestNgTestBase {
         assertEquals(doctorPage.getTextFromExitLink(), "יציאה");
     }
 
-    @Test(groups = {"negative"})
+    @Test(groups = {"login", "negative"})
     public void loginWithoutUsernameTest() {
         naprisloginPage.login("", DEFAULT_PASSWORD);
         doctorPage.waitUntilDoctorPageIsLoaded();
         AssertJUnit.assertEquals("Login", doctorPage.getTextFromExitLink());
     }
 
-    @Test(groups = {"negative"})
+    @Test(groups = {"login", "negative"})
     public void loginWithoutPasswordTest() {
         naprisloginPage.login(DEFAULT_USERNAME, "");
         doctorPage.waitUntilDoctorPageIsLoaded();
         AssertJUnit.assertEquals("Login", doctorPage.getTextFromExitLink());
     }
 
-    @Test(groups = {"negative"})
+    @Test(groups = {"login", "negative"})
     public void loginWithoutUsernameAndPasswordTest() {
         naprisloginPage.login("", "");
         doctorPage.waitUntilDoctorPageIsLoaded();

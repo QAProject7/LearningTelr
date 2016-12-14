@@ -47,7 +47,7 @@ public class NaprisDoctorRegistrationPageTest {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
     }
 
-    @Test(groups = {"positive"})
+    @Test(groups = {"doctorRegistration", "positive"})
     public void DoctorRegistrationTest() {
         naprisDoctorRegistrationPage.doctorRegistration(USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, PASSWORD,
                 PERSONAL_ID, CLINIC_NAME, BIRTHDAY, CONTACT_CELL, STREET, HOUSE_NUMBER, CITY);
@@ -58,7 +58,7 @@ public class NaprisDoctorRegistrationPageTest {
 
     }
 
-    @Test(groups = {"negative"})
+    @Test(groups = {"doctorRegistration", "negative"})
     public void DoctorRegistrationWithoutIDTest() {
         naprisDoctorRegistrationPage.doctorRegistration(USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, PASSWORD,
                 "", CLINIC_NAME, BIRTHDAY, CONTACT_CELL, STREET, HOUSE_NUMBER, CITY);
@@ -68,7 +68,7 @@ public class NaprisDoctorRegistrationPageTest {
     }
 
 
-    @Test(groups = {"negative"})
+    @Test(groups = {"doctorRegistration", "negative"})
     public void DoctorRegistrationWithWrongIDTest() {
         naprisDoctorRegistrationPage.doctorRegistration(USERNAME, FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, PASSWORD,
                 "111111111", CLINIC_NAME, BIRTHDAY, CONTACT_CELL, STREET, HOUSE_NUMBER, CITY);
