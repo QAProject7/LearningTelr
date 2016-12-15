@@ -1,13 +1,13 @@
 package com.telran.pages.TelRan7.anatoly;
 
-import com.telran.pages.Page;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import java.util.Random;
+ import com.telran.pages.Page;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.support.FindBy;
+ import org.openqa.selenium.support.PageFactory;
+ import java.util.Random;
 
-/**
+ /**
  * Created by
  */
 public class AnatolyRegPage extends Page {
@@ -106,16 +106,14 @@ public class AnatolyRegPage extends Page {
         setElementText(birthdayField, name);
     }
 
-    public void FillTelephone(String name) {
-        setElementText(telephoneField, name);
+    public void FillTelephone(String name) {setElementText(telephoneField, name);
     }
 
     public void FillStreet(String name) {
         setElementText(streetField, name);
     }
 
-    public void FillHome(String name) {
-        setElementText(homeField, name);
+    public void FillHome(String name) {  setElementText(homeField, name);
     }
 
     public void FillCity(String name) {
