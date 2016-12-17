@@ -1,7 +1,7 @@
-package com.telran.pages.TelRan7.vitaly.Tests;
+package com.telran.TestTelRan7.vitalyTests;
 
-import com.telran.pages.TelRan7.vitaly.Pages.VitalyDoctorRegistrationPage;
-import com.telran.pages.TelRan7.vitaly.Pages.VitalyLoginPage;
+import com.telran.pages.TelRan7.vitalyPages.VitalyDoctorRegistrationPage;
+import com.telran.pages.TelRan7.vitalyPages.VitalyLoginPage;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

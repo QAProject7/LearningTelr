@@ -1,4 +1,4 @@
-package com.telran.pages.TelRan7.vitaly.Pages;
+package com.telran.pages.TelRan7.vitalyPages;
 
 import com.telran.pages.Page;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * Created by vitaliy on 23.11.2016.
+ * Created by Vitaly on 23.11.2016.
  */
 public class VitalyDoctorRegistrationPage extends Page {
 
@@ -36,8 +36,6 @@ public class VitalyDoctorRegistrationPage extends Page {
     WebElement City;
     @FindBy(id = "MainContent_AddNewUser")
     WebElement addDoctorButton;
-    @FindBy(id = "Top1_HeadLoginStatus")
-    WebElement ExitLink;
     @FindBy(id = "MainContent_RegisterUser_CreateUserStepContainer_clinicNameTxt")
     WebElement clinicNameTxt;
     @FindBy(id = "ctl00_MainContent_RegisterUser_CreateUserStepContainer_birthdayTxt_dateInput")
@@ -45,8 +43,7 @@ public class VitalyDoctorRegistrationPage extends Page {
     @FindBy(id = "ctl00_MainContent_RegisterUser_CreateUserStepContainer_ContactCellTxt")
     WebElement contactCellTxt;
 
-    @FindBy(id = "ctl00_DisplayImportantLinks1_myMenu")
-    WebElement DoctorsRightMenu;
+
 
 
     //Methods
@@ -137,15 +134,5 @@ public class VitalyDoctorRegistrationPage extends Page {
         clickOnSaveNewDoctorButton();
     }
 
-    public void waitUntilDoctorsPageIsLoaded() {
-        waitUntilIsLoadedCustomTime(DoctorsRightMenu, 10);
-    }
 
-    public boolean isOnDoctorPage() {
-        return exists(ExitLink);
-    }
-
-    public String getTextFromExitLink() {
-        return ExitLink.getText();
-    }
 }
