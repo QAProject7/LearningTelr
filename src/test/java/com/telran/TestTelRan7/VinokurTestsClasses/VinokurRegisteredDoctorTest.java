@@ -52,7 +52,7 @@ public class VinokurRegisteredDoctorTest {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
     }
 
-    @Test (groups = {"positive"})
+    @Test (groups = {"registration","positive"})
     public void RegisteredDoctorPositiveTest() {
         vinokurRegisteredDoctorPage.registrationDoctorFillForm(USERNAME,FIRST_NAME,LAST_NAME, EMAIL,PASSWORD,
                 PASSWORD,PERSONAL_ID, CLINIC_NAME,BIRTHDAY,CONTACT_CELL,STREET,HOUSE_NUMBER,CITY);
@@ -60,21 +60,21 @@ public class VinokurRegisteredDoctorTest {
         Assert.assertTrue(vinokurLoginPage.IsOnDoctorPage(),"LOGIN NOT FINISHED");
         Assert.assertEquals("יציאה", vinokurLoginPage.GetTextFromExitLink(),"LOGIN NOT FINISHED");
     }
-    @Test(groups = {"negative"})
+    @Test(groups = {"registration","negative"})
     public void RegisteredDoctorWrongIDNegativeTest() {
         vinokurRegisteredDoctorPage.registrationDoctorFillForm(USERNAME,FIRST_NAME,LAST_NAME, EMAIL,PASSWORD,
                 PASSWORD,"12345678", CLINIC_NAME,BIRTHDAY,CONTACT_CELL,STREET,HOUSE_NUMBER,CITY);
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
         Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"LOGIN FINISHED in Negative test");
     }
-    @Test(groups = {"negative"})
+    @Test(groups = {"registration","negative"})
     public void RegisteredDoctorNoLastNameNegativeTest() {
         vinokurRegisteredDoctorPage.registrationDoctorFillForm(USERNAME,FIRST_NAME," ", EMAIL,PASSWORD,
                 PASSWORD,PERSONAL_ID, CLINIC_NAME,BIRTHDAY,CONTACT_CELL,STREET,HOUSE_NUMBER,CITY);
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
         Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"LOGIN FINISHED in Negative test");
     }
-    @Test(groups = {"negative"})
+    @Test(groups = {"registration","negative"})
     public void RegisteredDoctorNoEmailNegativeTest() {
         vinokurRegisteredDoctorPage.registrationDoctorFillForm(USERNAME,FIRST_NAME,LAST_NAME, EMAIL,PASSWORD,
                 PASSWORD,PERSONAL_ID, CLINIC_NAME,BIRTHDAY,CONTACT_CELL,STREET,HOUSE_NUMBER,CITY);
