@@ -1,8 +1,8 @@
 
 package com.telran.TestTelRan7.VinokurTestsClasses;
 
+import com.telran.TestNgTestBase;
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurLoginPage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -15,8 +15,8 @@ import org.testng.annotations.Test;
  * Created by Vinokur on 27.11.2016.
  */
 
-public class VinokurLoginTest{
-    public WebDriver driver;
+public class VinokurLoginTest extends TestNgTestBase {
+    // public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
 
 
