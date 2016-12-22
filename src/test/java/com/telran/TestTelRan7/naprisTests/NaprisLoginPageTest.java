@@ -32,11 +32,12 @@ public class NaprisLoginPageTest extends TestNgTestBase {
         //driver = new FirefoxDriver();
         naprisloginPage = PageFactory.initElements(driver, NaprisLoginPage.class);
         doctorPage = PageFactory.initElements(driver, NaprisDoctorPage.class);
+        driver.get(baseUrl + "/Login.aspx");
     }
 
     @BeforeMethod(alwaysRun = true)
     public void goToLoginPage() {
-        driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+
     }
 
     @Test(groups = {"login", "positive"})
