@@ -28,7 +28,7 @@ public class IakovLoginTest extends TestNgTestBase {
 
     @BeforeMethod(alwaysRun = true)
     public void gotoLoginPage() {
-        driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+        driver.get("http://dhclinicappv2stg.item-soft.co.il");
 
     }
 

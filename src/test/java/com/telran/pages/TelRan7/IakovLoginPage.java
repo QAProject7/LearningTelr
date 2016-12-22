@@ -1,6 +1,8 @@
 package com.telran.pages.TelRan7;
 
+import com.telran.LogLog4j;
 import com.telran.pages.Page;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +13,7 @@ import org.openqa.selenium.support.PageFactory;
  * Created by
  */
 public class IakovLoginPage extends Page {
-    // private static Logger Log = Logger.getLogger(LogLog4j.class.getName());
+    private static Logger Log = Logger.getLogger(LogLog4j.class.getName());
 
 
     //fields
@@ -41,18 +43,22 @@ public class IakovLoginPage extends Page {
 //methods
     public void FillUsername(String username) {
         setElementText(usernameField, username);
+        Log.info("Filling username field with " + username);
     }
 
     public void FillPassword(String password) {
         setElementText(passwordField, password);
+        Log.info("Filling password field with password " + password);
     }
 
     public void ClickOnLogin() {
         clickElement(LoginButton);
+        Log.info("Click to Login");
     }
 
     public void WaitUntilLoginPageIsLoaded() {
         waitUntilIsLoadedCustomTime(LoginButton, 10);
+        Log.info("Waiting until Login page is loaded");
     }
 
     public void Login(String username, String password) {
