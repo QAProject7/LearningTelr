@@ -1,8 +1,8 @@
 
 package com.telran.TestTelRan7.VinokurTestsClasses;
 
+import com.telran.TestNgTestBase;
 import com.telran.pages.TelRan7.vinokurPagesClasses.VinokurLoginPage;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -15,8 +15,8 @@ import org.testng.annotations.Test;
  * Created by Vinokur on 27.11.2016.
  */
 
-public class VinokurLoginTest{
-    public WebDriver driver;
+public class VinokurLoginTest extends TestNgTestBase {
+    // public WebDriver driver;
     public VinokurLoginPage vinokurLoginPage;
 
 
@@ -33,7 +33,8 @@ public class VinokurLoginTest{
     public void gotoLoginPage() {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
     }
-    @Test
+
+    @Test (groups = {"login","positive"})
     public void loginPositiveTest() {
         vinokurLoginPage.WaitUntilLoginPageIsLoaded();
         vinokurLoginPage.FillUsername("5555Doctor");
@@ -43,7 +44,7 @@ public class VinokurLoginTest{
         Assert.assertTrue(vinokurLoginPage.IsOnDoctorPage(),"login NOT FINISHED");
         Assert.assertEquals("יציאה", vinokurLoginPage.GetTextFromExitLink(),"login NOT FINISHED");
     }
-    @Test
+    @Test (groups = {"login","negative"})
     public void loginFullNegativeTest() {
         vinokurLoginPage.WaitUntilLoginPageIsLoaded();
         vinokurLoginPage.FillUsername("netTakogo");
@@ -53,7 +54,7 @@ public class VinokurLoginTest{
         Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"login FINISHED in Negative test");
 
     }
-    @Test
+    @Test(groups = {"login","negative"})
     public void loginNegativeNullUserTest() {
         vinokurLoginPage.WaitUntilLoginPageIsLoaded();
         vinokurLoginPage.FillUsername("");
@@ -62,7 +63,7 @@ public class VinokurLoginTest{
         vinokurLoginPage.WaitUntilDoctorPageIsLoaded();
         Assert.assertEquals("Login", vinokurLoginPage.GetTextFromExitLink(),"login FINISHED in Negative test");
     }
-    @Test
+    @Test(groups = {"login","negative"})
     public void loginNegativeNullPasswordTest() {
         vinokurLoginPage.WaitUntilLoginPageIsLoaded();
         vinokurLoginPage.FillUsername("5000doctor");
