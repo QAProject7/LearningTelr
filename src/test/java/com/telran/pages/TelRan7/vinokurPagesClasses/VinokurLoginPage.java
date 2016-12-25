@@ -73,3 +73,24 @@ public class VinokurLoginPage extends Page {
     public boolean IsOnDoctorPage() {return exists(DoctorNameLink);}
 
 }
+
+/*
+testng.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Tests" verbose="5">
+  <test name="Test1">
+    <groups>
+      <run>
+        <include name="positive"/>
+        <exclude name="negative"/>
+      </run>
+    </groups>
+
+    <classes>
+      <class name="com.telran.TestTelRan7.VinokurTestsClasses.VinokurLoginTest"/>
+      <class name="com.telran.TestTelRan7.VinokurTestsClasses.VinokurRegisteredDoctorTest"/>
+    </classes>
+  </test>
+</suite>
+ */

@@ -32,7 +32,7 @@ public class IakovLoginTest  {
 
     @BeforeMethod
     public void gotoLoginPage() {
-        driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+        driver.get("http://dhclinicappv2stg.item-soft.co.il");
 
     }
 
