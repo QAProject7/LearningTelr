@@ -1,6 +1,8 @@
 package com.telran.pages.TelRan7.napris;
 
+import com.telran.LogLog4j;
 import com.telran.pages.Page;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
  * Created by Napris on 04.12.2016.
  */
 public class NaprisDoctorPage extends Page {
+    private static Logger log = Logger.getLogger(LogLog4j.class.getName());
     //fields
 
     //buttons
@@ -47,6 +50,7 @@ public class NaprisDoctorPage extends Page {
 
     public void waitUntilDoctorPageIsLoaded() {
         waitUntilIsLoadedCustomTime(doctorsLeftMenu, 10);
+        log.info("Waiting 10sec until Doctor Page is loaded");
     }
 
     public String getTextFromDoctorsFullnameElement() {
