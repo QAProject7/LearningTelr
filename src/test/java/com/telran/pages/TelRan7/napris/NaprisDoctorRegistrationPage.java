@@ -1,4 +1,4 @@
-
+package com.telran.pages.TelRan7.napris;
 
 import com.telran.LogLog4j;
 import com.telran.pages.Page;

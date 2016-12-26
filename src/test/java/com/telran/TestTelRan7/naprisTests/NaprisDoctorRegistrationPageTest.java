@@ -1,7 +1,8 @@
 package com.telran.TestTelRan7.naprisTests;
 
-import com.telran.pages.TelRan7.NaprisDoctorRegistrationPage;
+
 import com.telran.pages.TelRan7.napris.NaprisDoctorPage;
+import com.telran.pages.TelRan7.napris.NaprisDoctorRegistrationPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
