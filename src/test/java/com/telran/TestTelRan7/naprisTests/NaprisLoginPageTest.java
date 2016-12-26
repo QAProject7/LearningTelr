@@ -11,10 +11,6 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.testng.annotations.AfterClass;
-
 
 /**
  * Created by Napris on 27.11.2016.
@@ -22,13 +18,13 @@ import static org.testng.Assert.assertEquals;
 public class NaprisLoginPageTest extends TestNgTestBase {
     public static final String DEFAULT_USERNAME = "Doctor";
     public static final String DEFAULT_PASSWORD = "LinkCare!!11";
-    //public WebDriver driver;
+    // public WebDriver driver;
     public NaprisLoginPage naprisloginPage;
     public NaprisDoctorPage doctorPage;
 
     @BeforeClass(alwaysRun = true)
     public void setup() {
-        //System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
+        // System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\geckodriver.exe");
         //driver = new FirefoxDriver();
         naprisloginPage = PageFactory.initElements(driver, NaprisLoginPage.class);
         doctorPage = PageFactory.initElements(driver, NaprisDoctorPage.class);
@@ -70,7 +66,7 @@ public class NaprisLoginPageTest extends TestNgTestBase {
         AssertJUnit.assertEquals("Login", doctorPage.getTextFromExitLink());
     }
 
-    //@AfterClass
+    // @AfterClass
     public void tearDown() {
         this.driver.quit();
     }
