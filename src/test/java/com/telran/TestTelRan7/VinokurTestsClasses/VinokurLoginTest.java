@@ -32,6 +32,8 @@ public class VinokurLoginTest extends TestNgTestBase {
     @BeforeMethod(alwaysRun = true)
     public void gotoLoginPage() {
         driver.get("http://dhclinicappv2stg.item-soft.co.il/Login.aspx");
+     //   Log.info("Waiting until Login page is loaded");
+        // если я хочу проверить, загрузилась ли страница. где вписывать ЛОГ?
     }
 
     @Test (groups = {"login","positive"})
